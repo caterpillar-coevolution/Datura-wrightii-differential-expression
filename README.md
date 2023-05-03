@@ -1,3 +1,2 @@
-# Datura_wrightii_differential_expression
-
-# these are the data (gene counts and metadata) and script used for the differential expression component of the Datura wrightii genome project
+# Datura wrightii genome project 
+# Data and code associated with the project. Raw data is not yet uploaded to GenBAnk. This file will be updated when they are.
