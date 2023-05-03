@@ -172,4 +172,12 @@ STAR --genomeDir Dwri/ \
 samtools index results/replaceAligned.sortedByCoord.out.bam
 
 #Step 9: paleopolyploidy analyses (DupPipe and MCScanX)
-#Note: these analyses were performed by my coauthor, Michael McKibben so exact scripts are not available to me at the time of this writing.
+#Note: these analyses were performed by my coauthor, Michael McKibben on a private server to allow root access
+
+#DupPipe
+nohup sudo docker run -u $(id -u) -v $(pwd):/home/evopipes_singularity duppipe.pl list.txt Solanaceae.pep 20 &
+
+#MCScanX
+makeblastdb -in Dwri.pep -dbtype prot -parse_seqids -out Dwri \n nohup blastall -a 20 -i Dwri.pep -d Dwri -p blastp -e 1e-10 -b 5 -v 5 -o -out Dwri.blast &
+
+
