@@ -180,4 +180,11 @@ nohup sudo docker run -u $(id -u) -v $(pwd):/home/evopipes_singularity duppipe.p
 #MCScanX
 makeblastdb -in Dwri.pep -dbtype prot -parse_seqids -out Dwri \n nohup blastall -a 20 -i Dwri.pep -d Dwri -p blastp -e 1e-10 -b 5 -v 5 -o -out Dwri.blast &
 
+###Bonus scripts
+#written by Michael McKibben
+#collect gene annotations from gff to add to diff expression results tables
+
+for i in $(awk -F "," {'print $2'} TableS3_Pairwise_SigGenes.csv) ; do grep $(echo "$i" | cut -f 2 -d '"') 	Dwri_corrected_annotation.gff3 | grep product  | awk -F "\t" {'print $9'}; done  > TableS4_annotations_corrected.txt
+for i in $(awk -F "," {'print $2'} Datura_corrected_deseq_output_TC_No24_SigGenesOnly.csv) ; do grep $(echo "$i" | cut -f 2 -d '"') Dwri_corrected_annotation.gff3 | grep product  | awk -F "\t" {'print $9'}; done  > TableS5_annotations_corrected.txt
+for i in $(awk -F "," {'print $2'} Datura_corrected_deseq_output_SigGenes_may2012.csv) ; do grep $(echo "$i" | cut -f 2 -d '"') Dwri_corrected_annotation.gff3 | grep product  | awk -F "\t" {'print $9'}; done  > TableS3_annotations_May2012only.txt
 
