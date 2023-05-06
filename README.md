@@ -1,2 +1,4 @@
 # Datura wrightii genome project 
-# Data and code associated with the project. Raw data is not yet uploaded to GenBAnk. This file will be updated when they are.
+# Data and code associated with the project. 
+# Assembly and raw HiFi reads can be found on NCBI (BioProject: PRJNA966699; BioSample: SAMN34546691). 
+Raw transcriptome data will be available on NCBI GenBank (BioProject: PRJNA966699)
